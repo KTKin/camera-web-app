@@ -1,0 +1,52 @@
+var frontCamera = false;
+var currentStream;
+
+const
+	cameraView = document.querySelector("#camera-view"),
+	cameraDevice = document.querySelector("#camera-device"),
+	photoDisplay = document.querySelector("#photo-display"),
+	takePhotoButton = document.querySelector("#take-photo-button"),
+	frontCameraButton = document.querySelector("#front-camera-button");
+	
+function cameraStart(){
+	if (typeof currentStream !== "undefined"){
+		currentStream.getTracks().forEach(track=>{
+			track.stop();
+		});
+	}
+
+	var constraints = {
+		video : { facingMode : ( frontCamera?"user":"environment") },
+		audio : false;
+	}
+
+	navigator.mediraDeices
+		.getUserMedia(constraints)
+		.then(function(stream){
+			currentStream = stream;
+			cameraDevice,srcObject = stream;
+		})
+		.catch(funtion(error){
+			console.error("Error happened.", error);
+		});
+}
+
+takePhotoButton.onclick = funtion(){
+	cameraView.width = cameraDevice.videoWidth;
+	cameraView.height;
+	cameraView.getContext("2d").drawImage(cameraDevice, 0 ,0);
+	photoDisplay.src = cameraView.toDataURL("image/webp");
+	photoDisplay.classList.add("photo-taken");
+};
+
+frontCameraButton.onclick = function(){
+	frontCamera = !frontCamera;
+	if (frontCamera){
+		frontCameraButton.textContent = "Back Camera";
+	} else {
+		frontCameraBtuuon.textContent = "Front Camera";
+	}
+	cameraStart();
+}
+
+window.addEventListener("load", cameraStart);
