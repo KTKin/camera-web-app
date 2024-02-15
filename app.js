@@ -17,8 +17,8 @@ function cameraStart(){
 
 	var constraints = {
 		video : { facingMode : ( frontCamera? "user" : "environment") },
-		audio : false;
-	}
+		audio : false
+	};
 
 	navigator.mediaDevices
 		.getUserMedia(constraints)
