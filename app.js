@@ -44,7 +44,7 @@ frontCameraButton.onclick = function(){
 	if (frontCamera){
 		frontCameraButton.textContent = "Back Camera";
 	} else {
-		frontCameraBtuuon.textContent = "Front Camera";
+		frontCameraButton.textContent = "Front Camera";
 	}
 	cameraStart();
 }
