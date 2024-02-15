@@ -26,7 +26,7 @@ function cameraStart(){
 			currentStream = stream;
 			cameraDevice,srcObject = stream;
 		})
-		.catch(funtion(error){
+		.catch(function(error){
 			console.error("Error happened.", error);
 		});
 }
