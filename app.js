@@ -31,7 +31,7 @@ function cameraStart(){
 		});
 }
 
-takePhotoButton.onclick = funtion(){
+takePhotoButton.onclick = function(){
 	cameraView.width = cameraDevice.videoWidth;
 	cameraView.height;
 	cameraView.getContext("2d").drawImage(cameraDevice, 0 ,0);
