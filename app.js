@@ -33,7 +33,7 @@ function cameraStart(){
 
 takePhotoButton.onclick = function(){
 	cameraView.width = cameraDevice.videoWidth;
-	cameraView.height;
+	cameraView.height = cameraDevice.videoHeight;
 	cameraView.getContext("2d").drawImage(cameraDevice, 0 ,0);
 	photoDisplay.src = cameraView.toDataURL("image/webp");
 	photoDisplay.classList.add("photo-taken");
