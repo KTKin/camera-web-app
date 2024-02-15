@@ -20,7 +20,7 @@ function cameraStart(){
 		audio : false;
 	}
 
-	navigator.mediraDeices
+	navigator.mediaDevices
 		.getUserMedia(constraints)
 		.then(function(stream){
 			currentStream = stream;
