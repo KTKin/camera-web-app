@@ -16,7 +16,7 @@ function cameraStart(){
 	}
 
 	var constraints = {
-		video : { facingMode : ( frontCamera?"user":"environment") },
+		video : { facingMode : ( frontCamera? "user" : "environment") },
 		audio : false;
 	}
 
